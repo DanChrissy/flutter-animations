@@ -14,15 +14,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Animations with Routing'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                  Navigator.of(context).push(_createRoute());
+                },
+              icon: Icon(Icons.arrow_forward)
+          )
+        ],
+      ),
       body: Column(
         children: <Widget>[
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(_createRoute());
-              },
-              child: Text('Next Page'),
-          ),
           Expanded(
               child: DraggableCard(
                   child: FlutterLogo(
